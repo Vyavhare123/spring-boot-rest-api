@@ -35,13 +35,20 @@ public class StudentController {
 		
 	}
 	
+	// Get all student information
+		@GetMapping("/student/get/{rollnumber}")
+		public ResponseEntity<Student>getStudentById(@PathVariable("rollnumber")int rollnumber){
+			Student getOneStudent=studentService.getStudentById(rollnumber);
+			return new ResponseEntity<>(getOneStudent,HttpStatus.FOUND);
+		}
+	
+	// Get all student information
 	@GetMapping("/student")
 	public ResponseEntity<List<Student>>getAllStudent(){
 		 List<Student>allStudent=studentService.getAllStudent();
 		return new ResponseEntity<>(allStudent,HttpStatus.OK);
-		
 	}
-	
+	// delete student from database
 	@DeleteMapping("/student/{rollnumber}")
 	public ResponseEntity<String>deleteById(@PathVariable("rollnumber")int rollnumber){
 		 String str=studentService.deleteStudent(rollnumber);

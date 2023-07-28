@@ -15,7 +15,8 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired  
 	private StudentRepository studentRepository;
 	
-	@Autowired Student student1;
+//	@Autowired 
+//	Student student;
     
 	
 	@Override
@@ -24,7 +25,13 @@ public class StudentServiceImpl implements StudentService {
 		Student saveStudent=studentRepository.save(student);
 		return saveStudent;
 	}
-
+	
+	@Override
+	public Student getStudentById(int rollNumber) {
+		 Student stududentByid=studentRepository.findById(rollNumber).orElseThrow(()-> new StudentNotFoundException("Student not found with ID: " + rollNumber));
+		return stududentByid;
+	}
+	
 	@Override
 	public List<Student> getAllStudent() {
 		List<Student>getStudent=studentRepository.findAll();
@@ -49,5 +56,7 @@ public class StudentServiceImpl implements StudentService {
 		studentRepository.deleteById(rollNumber);
 		return "Student Deleted Seccusfuuly";
 	}
+
+	
 
 }

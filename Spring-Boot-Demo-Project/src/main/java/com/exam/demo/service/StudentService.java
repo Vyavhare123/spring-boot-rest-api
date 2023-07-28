@@ -17,6 +17,8 @@ public interface StudentService {
 	
     // Delete Student Info
 	public String deleteStudent(int rollNumber);
+	// get student by id;
+	public Student getStudentById(int rollNumber);
 	
 	
 }

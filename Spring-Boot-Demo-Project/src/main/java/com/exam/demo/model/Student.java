@@ -1,10 +1,10 @@
 package com.exam.demo.model;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "STUDENT")
 public class Student {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,13 +22,14 @@ public class Student {
 	@Column(name = "NAME")
 	private String name;
 	@Column(name = "SURNAME")
-	private String Surname;
-	@Column(name = "DIV")
-	private char div;
+	private String surName;
+    @Column(name = "DIVision")
+	private char division;
 	@Column(name = "PERCENTAGE")
-	private int percentage;
+	private Double percentage;
 	@Column(name = "STANDARD")
 	private int standard;
+	
 	
 
 }

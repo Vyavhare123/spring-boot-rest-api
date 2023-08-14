@@ -14,16 +14,13 @@ public class StudentServiceImpl implements StudentService {
 	
 	@Autowired  
 	private StudentRepository studentRepository;
-	
-//	@Autowired 
-//	Student student;
     
 	
 	@Override
 	public Student saveStudentInfo(Student student) {
 		// TODO Auto-generated method stub
-		Student saveStudent=studentRepository.save(student);
-		return saveStudent;
+		Student saveStudent1=studentRepository.save(student);
+		return saveStudent1;
 	}
 	
 	@Override
@@ -43,11 +40,12 @@ public class StudentServiceImpl implements StudentService {
 		
 	    Student stud=studentRepository.findById(rollNumber).orElseThrow(()-> new StudentNotFoundException("Student not found with ID: " + rollNumber));
 	    stud.setName(student.getName());
-	    stud.setRollNumber(student.getRollNumber());
-	    stud.setSurname(student.getSurname());
+	    //stud.setRollNumber(student.getRollNumber());
+	    stud.setSurName(student.getSurName());
 	    stud.setPercentage(student.getPercentage());
-	    stud.setDiv(student.getDiv());
+	    stud.setDivision(student.getDivision());
 	    stud.setStandard(student.getStandard());
+	    studentRepository.save(stud);
 	    return stud;
 	}
 

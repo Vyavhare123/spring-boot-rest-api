@@ -52,7 +52,7 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public String deleteStudent(int rollNumber) {
 		studentRepository.deleteById(rollNumber);
-		return "Student Deleted Seccusfuuly";
+		return "Student Deleted Seccusfuly";
 	}
 
 	

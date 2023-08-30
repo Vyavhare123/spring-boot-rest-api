@@ -17,6 +17,7 @@ import com.exam.demo.exception.StudentNotFoundException;
 import com.exam.demo.model.Student;
 import com.exam.demo.repository.StudentRepository;
 
+
 @SpringBootTest
 class StudentServiceImplTest {
 
@@ -115,6 +116,21 @@ class StudentServiceImplTest {
 		assertThrows(StudentNotFoundException.class, () -> {
 			studentService.getStudentById(rollNumber);
 		});
+
+	}
+	
+	@Test
+	public void tesTUpdateStudent1() {
+		int id=1111;
+		//Student studentGetById = studentService.getStudentById(id);
+		StudentNotFoundException exception=assertThrows(StudentNotFoundException.class, () -> {
+			studentService.updateStudentInfo(StudentServiceImplTest.studentInfo(),id);
+		});
+		
+		String expetedMassage="Student not found with ID: " + id;
+       String actualMassage=exception.getMessage();
+       
+       assert(actualMassage.contains(expetedMassage));
 
 	}
 

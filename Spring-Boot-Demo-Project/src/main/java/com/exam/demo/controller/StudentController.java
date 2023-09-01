@@ -40,7 +40,7 @@ public class StudentController {
 		@GetMapping("/student/get/{rollnumber}")
 		public ResponseEntity<Student>getStudentById(@PathVariable("rollnumber")int rollnumber){
 			Student getOneStudent=studentService.getStudentById(rollnumber);
-			return new ResponseEntity<>(getOneStudent,HttpStatus.FOUND);
+			return new ResponseEntity<>(getOneStudent,HttpStatus.OK);
 		}
 	
 	// Get all student information
